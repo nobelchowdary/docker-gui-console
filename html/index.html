@@ -1,0 +1,98 @@
+
+<style>
+h1 {text-align: center;}
+img {text-align: center;}
+</style>
+
+<h1> !!! Welcome to Docker GUI Web Console !!! </h1>
+<center>
+<img src="docke.png" alt="Trulli" width="1550" height="300">
+</center>
+<center>
+<script>
+
+function lw(){
+	var xhr = new XMLHttpRequest();
+	xhr.open("GET", "http://192.168.1.11/cgi-bin/lw.py", true);
+	xhr.send();
+	xhr.onload=function(){
+		var output = xhr.responseText;
+		document.getElementById("d1").innerHTML = output;}
+}
+</script>
+<h2>
+<pre>
+<div id="d1">Your Ouput will appear here...</div>
+</pre>
+<h2>
+</center>
+<center>
+<button class="button", onclick="lw2()", style="margin:20px">Launch Centos Container</button>
+<button class="button", onclick="lw3()", style="margin:20px">Docker Images</button>
+<button class="button", onclick="lw()", style="margin:20px">Docker Containers</button>
+
+<button class="button", onclick="lw4()", style="margin:20px">Remove all Containers</button>
+</center>
+<script>
+function lw2(){
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "http://192.168.1.11/cgi-bin/lw2.py", true);
+        xhr.send();
+        xhr.onload=function(){
+                var output = xhr.responseText;
+                document.getElementById("d1").innerHTML = output;}
+}
+function lw3(){
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "http://192.168.1.11/cgi-bin/lw3.py", true);
+        xhr.send();
+        xhr.onload=function(){
+                var output = xhr.responseText;
+                document.getElementById("d1").innerHTML = output;}
+}
+function lw4(){
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "http://192.168.1.11/cgi-bin/lw4.py", true);
+        xhr.send();
+        xhr.onload=function(){
+                var output = xhr.responseText;
+                document.getElementById("d1").innerHTML = output;}
+}
+</script>
+
+
+
+<style>
+.button {
+  background-color: #008CBA;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+</style>
+
+
+<script>
+
+function lw1(){
+	var i = document.getElementById("in1").value
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "http://192.168.1.11/cgi-bin/lw1.py?x=" + i, true);
+        xhr.send();
+        xhr.onload=function(){
+                var output = xhr.responseText;
+                document.getElementById("d1").innerHTML = output;}
+}
+</script>
+<center>
+<h4>
+[root@localhost ~]# docker<input id="in1"/>
+</h4>
+<button class="button", onclick="lw1()", style="margin:20px">Enter</button>
+</center>
